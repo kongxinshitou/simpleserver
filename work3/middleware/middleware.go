@@ -13,9 +13,8 @@ func IsCached(c *gin.Context) {
 	value, ok := cache.DefaultCache.Get(key)
 	fmt.Println("进入中间件")
 	if ok {
-		fmt.Println("缓存已存在1")
 		c.Data(http.StatusOK, "application/json", []byte(value))
-		fmt.Println("缓存已存在2")
+		fmt.Println("缓存已存在")
 		c.Abort()
 		return
 	}

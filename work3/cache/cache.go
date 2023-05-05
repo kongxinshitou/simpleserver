@@ -44,9 +44,10 @@ func (c *Cache) Get(key string) (string, bool) {
 		return "", false
 	}
 	val, lastTime := v.val, v.lastTime
-	if time.Since(lastTime) > c.timeout {
+	if time.Since(lastTime) >= c.timeout {
 		return "", false
 	}
+	c.data[key] = result{val, time.Now()}
 	return val, true
 }
 
