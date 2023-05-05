@@ -47,7 +47,6 @@ func (c *Cache) Get(key string) (string, bool) {
 	if time.Since(lastTime) >= c.timeout {
 		return "", false
 	}
-	c.data[key] = result{val, time.Now()}
 	return val, true
 }
 
