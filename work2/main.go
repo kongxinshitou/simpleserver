@@ -8,5 +8,5 @@ import (
 func main() {
 	router := gin.Default()
 	router.GET("/price/:currency", handler.GetMessage)
-	router.Run("0.0.0.0:8080")
+	router.Run("0.0.0.0:8079")
 }

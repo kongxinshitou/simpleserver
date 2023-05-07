@@ -20,6 +20,8 @@ func IsCached(c *gin.Context) {
 	}
 	c.Next()
 	fmt.Println("设置缓存")
+	v, _ := c.Get("content")
+	value = string(v.([]byte))
 	cache.DefaultCache.Set(key, value)
 	fmt.Printf("Cache key %v\n", key)
 }

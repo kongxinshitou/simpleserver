@@ -35,6 +35,7 @@ func GetMessage(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
+	// 传递下去
 	c.Set("content", content)
 	c.Data(http.StatusOK, `application/json`, content)
 }
